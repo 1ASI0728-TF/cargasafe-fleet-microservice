@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: fleet-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cargasafe_fleet
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: com.cargasafe.fleet.shared.infrastructure.jpa.SnakeCasePhysicalNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: false
+
+server:
+  port: 8085
+
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /swagger
