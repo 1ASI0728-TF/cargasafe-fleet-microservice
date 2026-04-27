@@ -2,11 +2,12 @@ spring:
   application:
     name: fleet-service
 
-  datasource:
-    url: ${DATABASE_URL}
+  datasource:                                               
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
     username: ${PGUSER}
-    password: ${PGPASSWORD}
+    password: ${PGPASSWORD}                                                                                                                                   
     driver-class-name: org.postgresql.Driver
+
 
   jpa:
     hibernate:
