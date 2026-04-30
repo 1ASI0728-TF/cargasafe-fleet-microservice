@@ -2,12 +2,11 @@ spring:
   application:
     name: fleet-service
 
-  datasource:                                               
-    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
-    username: ${PGUSER}
-    password: ${PGPASSWORD}                                                                                                                                   
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/cargasafe_fleet}
+    username: ${PGUSER:postgres}
+    password: ${PGPASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
-
 
   jpa:
     hibernate:
@@ -22,6 +21,7 @@ spring:
 
 server:
   port: ${PORT:8085}
+  forward-headers-strategy: framework
 
 springdoc:
   api-docs:
